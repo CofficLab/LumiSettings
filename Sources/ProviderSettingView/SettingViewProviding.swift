@@ -8,8 +8,8 @@ import SwiftUI
 /// stay decoupled without losing the requested destination.
 public enum SettingViewNavigation {
     /// Shared notification name. Notifications are process-local, so sibling apps can use the same name.
-    public static let openSettingsNotification = Notification.Name("coffic.settings.open")
-    public static let entryIDUserInfoKey = "coffic.settings.entryID"
+    public static let openSettingsNotification = Notification.Name("lumi.openSettings")
+    public static let entryIDUserInfoKey = "lumi.settings.entryID"
 }
 
 /// 设置视图提供能力协议
