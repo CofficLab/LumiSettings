@@ -12,6 +12,8 @@ public struct SettingEntryItem: Identifiable {
     public let title: String
     public let systemImage: String
     public var order: Int
+    /// 所属分组（iOS 根页的分组列表用；macOS 侧忽略）。
+    public let group: SettingEntryGroup?
     /// 详情视图。
     public let makeDetailView: @MainActor () -> AnyView
 
@@ -20,12 +22,14 @@ public struct SettingEntryItem: Identifiable {
         title: String,
         systemImage: String,
         order: Int = 200,
+        group: SettingEntryGroup? = nil,
         @ViewBuilder detail: @escaping @MainActor () -> Content
     ) {
         self.id = id
         self.title = title
         self.systemImage = systemImage
         self.order = order
+        self.group = group
         self.makeDetailView = { AnyView(detail()) }
     }
 }

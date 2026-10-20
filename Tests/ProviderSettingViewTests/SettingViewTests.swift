@@ -39,6 +39,7 @@ struct SettingViewTests {
         #expect(view.provider.entries.count == 2)
     }
 
+#if os(iOS)
     @Test("iOS 导航视图可构造并持有 Provider")
     func iosNavigationViewConstructs() {
         let provider = DefaultSettingViewProviding()
@@ -58,6 +59,7 @@ struct SettingViewTests {
         #expect(view.provider.entries.isEmpty)
         #expect(view.provider.selectedEntryID == nil)
     }
+#endif
 
     @Test("外壳观察者在消失后释放，不再接收事件")
     func shellObserverStopsReceivingEventsAfterCancel() {

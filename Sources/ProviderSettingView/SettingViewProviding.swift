@@ -12,6 +12,18 @@ public enum SettingViewNavigation {
     public static let entryIDUserInfoKey = "lumi.settings.entryID"
 }
 
+/// 设置入口的导航目标。
+///
+/// 单独成类型（而不是复用 `String`），避免与宿主 App 自己的
+/// `navigationDestination(for:)` 冲突。
+public struct SettingEntryRoute: Hashable, Sendable {
+    public let entryID: String
+
+    public init(entryID: String) {
+        self.entryID = entryID
+    }
+}
+
 /// 设置视图提供能力协议
 ///
 /// 定义「内核 → 设置窗口内容」这一段的最小契约：宿主在启动时
